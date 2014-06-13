@@ -1334,7 +1334,7 @@ public class MainController implements Initializable {
             if (bool) {
                 Collections.sort(aGrupoModel, Collections.reverseOrder());
             }
-            AsignarBanderas(nombre);
+            AsignarBanderas(nombre, aGrupoModel);
             switch (nombre) {
                 case "A": {
                     final ObservableList<GrupoModel> dataA = FXCollections.observableArrayList(aGrupoModel);
@@ -1445,62 +1445,62 @@ public class MainController implements Initializable {
         }
     }
 
-    private void AsignarBanderas(String s) {
+    private void AsignarBanderas(String s, ArrayList<GrupoModel> agm) {
         switch (s) {
             case "A": {
-                imagenBanderaA1.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(0).getsNombre(), "flags")));
-                imagenBanderaA2.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(1).getsNombre(), "flags")));
-                imagenBanderaA3.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(2).getsNombre(), "flags")));
-                imagenBanderaA4.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(3).getsNombre(), "flags")));
+                imagenBanderaA1.setImage(new Image(PathFinder.PathABandera(agm.get(0).getNombre(), "flags")));
+                imagenBanderaA2.setImage(new Image(PathFinder.PathABandera(agm.get(1).getNombre(), "flags")));
+                imagenBanderaA3.setImage(new Image(PathFinder.PathABandera(agm.get(2).getNombre(), "flags")));
+                imagenBanderaA4.setImage(new Image(PathFinder.PathABandera(agm.get(3).getNombre(), "flags")));
                 break;
             }
             case "B": {
-                imagenBanderaB1.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(0).getsNombre(), "flags")));
-                imagenBanderaB2.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(1).getsNombre(), "flags")));
-                imagenBanderaB3.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(2).getsNombre(), "flags")));
-                imagenBanderaB4.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(3).getsNombre(), "flags")));
+                imagenBanderaB1.setImage(new Image(PathFinder.PathABandera(agm.get(0).getNombre(), "flags")));
+                imagenBanderaB2.setImage(new Image(PathFinder.PathABandera(agm.get(1).getNombre(), "flags")));
+                imagenBanderaB3.setImage(new Image(PathFinder.PathABandera(agm.get(2).getNombre(), "flags")));
+                imagenBanderaB4.setImage(new Image(PathFinder.PathABandera(agm.get(3).getNombre(), "flags")));
                 break;
             }
             case "C": {
-                imagenBanderaC1.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(0).getsNombre(), "flags")));
-                imagenBanderaC2.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(1).getsNombre(), "flags")));
-                imagenBanderaC3.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(2).getsNombre(), "flags")));
-                imagenBanderaC4.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(3).getsNombre(), "flags")));
+                imagenBanderaC1.setImage(new Image(PathFinder.PathABandera(agm.get(0).getNombre(), "flags")));
+                imagenBanderaC2.setImage(new Image(PathFinder.PathABandera(agm.get(1).getNombre(), "flags")));
+                imagenBanderaC3.setImage(new Image(PathFinder.PathABandera(agm.get(2).getNombre(), "flags")));
+                imagenBanderaC4.setImage(new Image(PathFinder.PathABandera(agm.get(3).getNombre(), "flags")));
                 break;
             }
             case "D": {
-                imagenBanderaD1.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(0).getsNombre(), "flags")));
-                imagenBanderaD2.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(1).getsNombre(), "flags")));
-                imagenBanderaD3.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(2).getsNombre(), "flags")));
-                imagenBanderaD4.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(3).getsNombre(), "flags")));
+                imagenBanderaD1.setImage(new Image(PathFinder.PathABandera(agm.get(0).getNombre(), "flags")));
+                imagenBanderaD2.setImage(new Image(PathFinder.PathABandera(agm.get(1).getNombre(), "flags")));
+                imagenBanderaD3.setImage(new Image(PathFinder.PathABandera(agm.get(2).getNombre(), "flags")));
+                imagenBanderaD4.setImage(new Image(PathFinder.PathABandera(agm.get(3).getNombre(), "flags")));
                 break;
             }
             case "E": {
-                imagenBanderaE1.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(0).getsNombre(), "flags")));
-                imagenBanderaE2.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(1).getsNombre(), "flags")));
-                imagenBanderaE3.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(2).getsNombre(), "flags")));
-                imagenBanderaE4.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(3).getsNombre(), "flags")));
+                imagenBanderaE1.setImage(new Image(PathFinder.PathABandera(agm.get(0).getNombre(), "flags")));
+                imagenBanderaE2.setImage(new Image(PathFinder.PathABandera(agm.get(1).getNombre(), "flags")));
+                imagenBanderaE3.setImage(new Image(PathFinder.PathABandera(agm.get(2).getNombre(), "flags")));
+                imagenBanderaE4.setImage(new Image(PathFinder.PathABandera(agm.get(3).getNombre(), "flags")));
                 break;
             }
             case "F": {
-                imagenBanderaF1.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(0).getsNombre(), "flags")));
-                imagenBanderaF2.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(1).getsNombre(), "flags")));
-                imagenBanderaF3.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(2).getsNombre(), "flags")));
-                imagenBanderaF4.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(3).getsNombre(), "flags")));
+                imagenBanderaF1.setImage(new Image(PathFinder.PathABandera(agm.get(0).getNombre(), "flags")));
+                imagenBanderaF2.setImage(new Image(PathFinder.PathABandera(agm.get(1).getNombre(), "flags")));
+                imagenBanderaF3.setImage(new Image(PathFinder.PathABandera(agm.get(2).getNombre(), "flags")));
+                imagenBanderaF4.setImage(new Image(PathFinder.PathABandera(agm.get(3).getNombre(), "flags")));
                 break;
             }
             case "G": {
-                imagenBanderaG1.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(0).getsNombre(), "flags")));
-                imagenBanderaG2.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(1).getsNombre(), "flags")));
-                imagenBanderaG3.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(2).getsNombre(), "flags")));
-                imagenBanderaG4.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(3).getsNombre(), "flags")));
+                imagenBanderaG1.setImage(new Image(PathFinder.PathABandera(agm.get(0).getNombre(), "flags")));
+                imagenBanderaG2.setImage(new Image(PathFinder.PathABandera(agm.get(1).getNombre(), "flags")));
+                imagenBanderaG3.setImage(new Image(PathFinder.PathABandera(agm.get(2).getNombre(), "flags")));
+                imagenBanderaG4.setImage(new Image(PathFinder.PathABandera(agm.get(3).getNombre(), "flags")));
                 break;
             }
             case "H": {
-                imagenBanderaH1.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(0).getsNombre(), "flags")));
-                imagenBanderaH2.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(1).getsNombre(), "flags")));
-                imagenBanderaH3.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(2).getsNombre(), "flags")));
-                imagenBanderaH4.setImage(new Image(PathFinder.PathABandera(Grupo.BuscarGrupo("G" + s).geteEquipo(3).getsNombre(), "flags")));
+                imagenBanderaH1.setImage(new Image(PathFinder.PathABandera(agm.get(0).getNombre(), "flags")));
+                imagenBanderaH2.setImage(new Image(PathFinder.PathABandera(agm.get(1).getNombre(), "flags")));
+                imagenBanderaH3.setImage(new Image(PathFinder.PathABandera(agm.get(2).getNombre(), "flags")));
+                imagenBanderaH4.setImage(new Image(PathFinder.PathABandera(agm.get(3).getNombre(), "flags")));
                 break;
             }
         }
