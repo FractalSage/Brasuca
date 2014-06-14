@@ -411,9 +411,10 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
                 }
             }
         }
-        if (apostador.getGoleador().equals(ServiceManager.getsGoleador())) {
+        for(String goleador : ServiceManager.getsGoleador()){
+        if (apostador.getGoleador().equals(goleador)) {
             iGoleador += 66;
-        }
+        }}
         if ((apostador.getCampeon() == pri || apostador.getCampeon() == seg || apostador.getCampeon() == ter)
                 && (apostador.getSegundo() == pri || apostador.getSegundo() == seg || apostador.getSegundo() == ter)
                 && (apostador.getTercero() == pri || apostador.getTercero() == seg || apostador.getTercero() == ter)) {

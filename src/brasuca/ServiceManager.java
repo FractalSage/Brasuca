@@ -12,6 +12,7 @@ import eu.dataaccess.footballpool.TFullTeamInfo;
 import eu.dataaccess.footballpool.TGameInfo;
 import eu.dataaccess.footballpool.TGroupsCompetitors;
 import eu.dataaccess.footballpool.TTeamInfo;
+import eu.dataaccess.footballpool.TTopGoalScorer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,15 +30,11 @@ import java.util.Objects;
  */
 public class ServiceManager {
 
-    private static String sGoleador = "";
+    private static ArrayList<String> sGoleador = new ArrayList<>();
 
-    public static String getsGoleador() {
+    public static ArrayList<String> getsGoleador() {
         return sGoleador;
-    }
-
-    public static void setsGoleador(String sGoleador) {
-        ServiceManager.sGoleador = sGoleador;
-    }
+    }    
 
     public static void CargarGrupos(boolean b) throws IOException {
         List<TGroupsCompetitors> Groups = allGroupCompetitors().getTGroupsCompetitors();
@@ -201,7 +198,20 @@ public class ServiceManager {
     }
 
     public static void CargarGoleador() {
-        ServiceManager.sGoleador = topGoalScorers(1).getTTopGoalScorer().get(0).getSName();
+        int x = 0;
+        for(TTopGoalScorer goleador : topGoalScorers(0).getTTopGoalScorer()){
+            if(goleador.getIGoals() > x){
+                x = goleador.getIGoals();
+                sGoleador = new ArrayList<>();
+                sGoleador.add(goleador.getSName());
+            }else{
+                if(goleador.getIGoals() == x){
+                    sGoleador.add(goleador.getSName());
+                }else{
+                    break;
+                }
+            }
+        }
     }
 
     private static ArrayOftGroupsCompetitors allGroupCompetitors() {
