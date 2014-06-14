@@ -15,75 +15,43 @@ import java.util.GregorianCalendar;
  */
 public class Partido implements Serializable, Comparable<Partido> {
 
-    private Calendar cFecha;
-    private String sEtapa;
-    private Equipo eLocal, eVisitante;
-    private Integer sId, iGolesLocal, iGolesVisitante;
-    private Boolean bJugado;
-    static private ArrayList<Partido> aPartidos = new ArrayList<>();
+    private final Calendar cFecha;
+    private final String sEtapa;
+    private final Equipo eLocal, eVisitante;
+    private final Integer sId, iGolesLocal, iGolesVisitante;
+    private final Boolean bJugado;
+    private static final ArrayList<Partido> aPartidos = new ArrayList<>();
 
     public Integer getsId() {
         return sId;
-    }
-
-    public void setsId(Integer sId) {
-        this.sId = sId;
     }
 
     public Calendar getcFecha() {
         return cFecha;
     }
 
-    public void setcFecha(Calendar dFecha) {
-        this.cFecha = dFecha;
-    }
-
     public String getsEtapa() {
         return sEtapa;
-    }
-
-    public void setsEtapa(String sEtapa) {
-        this.sEtapa = sEtapa;
     }
 
     public Equipo geteLocal() {
         return eLocal;
     }
 
-    public void seteLocal(Equipo eLocal) {
-        this.eLocal = eLocal;
-    }
-
     public Equipo geteVisitante() {
         return eVisitante;
-    }
-
-    public void seteVisitante(Equipo eVisitante) {
-        this.eVisitante = eVisitante;
     }
 
     public Integer getiGolesLocal() {
         return iGolesLocal;
     }
 
-    public void setiGolesLocal(Integer gGolesLocal) {
-        this.iGolesLocal = gGolesLocal;
-    }
-
     public Integer getiGolesVisitante() {
         return iGolesVisitante;
     }
 
-    public void setiGolesVisitante(Integer gGolesVisitante) {
-        this.iGolesVisitante = gGolesVisitante;
-    }
-
     public Boolean isbJugado() {
         return bJugado;
-    }
-
-    public void setbJugado(Boolean bJugado) {
-        this.bJugado = bJugado;
     }
 
     public static Calendar calendarFor(int year, int month, int day) {
@@ -97,18 +65,14 @@ public class Partido implements Serializable, Comparable<Partido> {
     public static ArrayList<Partido> getaPartidos() {
         return aPartidos;
     }
-    
+
     public static Partido getPartido(int i) {
-        for(Partido p:aPartidos){
-            if(p.sId == i){
+        for (Partido p : aPartidos) {
+            if (p.sId == i) {
                 return p;
             }
         }
         return null;
-    }
-
-    public static void setaPartidos(ArrayList<Partido> aPartidos) {
-        Partido.aPartidos = aPartidos;
     }
 
     public Partido(GregorianCalendar date, String etapa, Equipo local, Equipo visitante, Integer id, int gollocal, int golvisitante, boolean b) {

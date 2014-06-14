@@ -411,10 +411,13 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
                 }
             }
         }
-        for(String goleador : ServiceManager.getsGoleador()){
-        if (apostador.getGoleador().equals(goleador)) {
-            iGoleador += 66;
-        }}
+        if (Partido.getPartido(64).isbJugado()) {
+            for (String gol : ServiceManager.getsGoleador()) {
+                if (apostador.getGoleador().equals(gol)) {
+                    iGoleador += 66;
+                }
+            }
+        }
         if ((apostador.getCampeon() == pri || apostador.getCampeon() == seg || apostador.getCampeon() == ter)
                 && (apostador.getSegundo() == pri || apostador.getSegundo() == seg || apostador.getSegundo() == ter)
                 && (apostador.getTercero() == pri || apostador.getTercero() == seg || apostador.getTercero() == ter)) {
@@ -425,10 +428,8 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
                 && apostador.getTercero() == ter) {
             iPodio += 60;
         }
-        iTotal = iGrupoA + iGrupoB + iGrupoC + iGrupoD
-                + iGrupoE + iGrupoF + iGrupoG + iGrupoH
-                + iOctavos + iCuartos + iSemis + iTercer
-                + iFinal + iGoleador + iPodio;
+        iTotal = iGrupoA + iGrupoB + iGrupoC + iGrupoD + iGrupoE + iGrupoF + iGrupoG + iGrupoH
+                + iOctavos + iCuartos + iSemis + iTercer + iFinal + iGoleador + iPodio;
         usuario = apostador.getsUsuario();
         grupoA = iGrupoA.toString();
         grupoB = iGrupoB.toString();

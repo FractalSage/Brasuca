@@ -14,39 +14,23 @@ import java.util.List;
  */
 public class Jugador implements Serializable {
 
-    private String sNombre;
-    private List<String> Defensores, Mediocampistas, Delanteros;
+    private final String sNombre;
+    private final List<String> Defensores, Mediocampistas, Delanteros;
 
     public String getsNombre() {
         return sNombre;
-    }
-
-    public void setsNombre(String sNombre) {
-        this.sNombre = sNombre;
     }
 
     public List<String> getDefensores() {
         return Defensores;
     }
 
-    public void setDefensores(List<String> Defensores) {
-        this.Defensores = Defensores;
-    }
-
     public List<String> getMediocampistas() {
         return Mediocampistas;
     }
 
-    public void setMediocampistas(List<String> Mediocampistas) {
-        this.Mediocampistas = Mediocampistas;
-    }
-
     public List<String> getDelanteros() {
         return Delanteros;
-    }
-
-    public void setDelanteros(List<String> Delanteros) {
-        this.Delanteros = Delanteros;
     }
 
     public Jugador(List<String> def, List<String> mid, List<String> fwd, String name) {
@@ -54,6 +38,6 @@ public class Jugador implements Serializable {
         this.Defensores = def;
         this.Mediocampistas = mid;
         this.Delanteros = fwd;
-        
+
     }
 }

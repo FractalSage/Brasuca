@@ -22,75 +22,43 @@ import java.util.Objects;
  */
 public class ApuestaGrupo implements Serializable {
 
-    private String sNombre;
+    private final String sNombre;
     private Equipo[] eEquipos;
     private Integer[] iPuntos, iGolesFavor, iGolesContra;
     private Equipo ePrimero, eSegundo;
-    private ArrayList<ApuestaPartido> aPartidos = new ArrayList<>();
+    private final ArrayList<ApuestaPartido> aPartidos = new ArrayList<>();
 
     public String getsNombre() {
         return sNombre;
-    }
-
-    public void setsNombre(String sNombre) {
-        this.sNombre = sNombre;
     }
 
     public Equipo[] geteEquipos() {
         return eEquipos;
     }
 
-    public void seteEquipos(Equipo[] eEquipos) {
-        this.eEquipos = eEquipos;
-    }
-
     public Integer[] getiPuntos() {
         return iPuntos;
-    }
-
-    public void setiPuntos(Integer[] iPuntos) {
-        this.iPuntos = iPuntos;
     }
 
     public Integer[] getiGolesFavor() {
         return iGolesFavor;
     }
 
-    public void setiGolesFavor(Integer[] iGolesFavor) {
-        this.iGolesFavor = iGolesFavor;
-    }
-
     public Integer[] getiGolesContra() {
         return iGolesContra;
-    }
-
-    public void setiGolesContra(Integer[] iGolesContra) {
-        this.iGolesContra = iGolesContra;
     }
 
     public Equipo getePrimero() {
         return ePrimero;
     }
 
-    public void setePrimero(Equipo ePrimero) {
-        this.ePrimero = ePrimero;
-    }
-
     public Equipo geteSegundo() {
         return eSegundo;
     }
 
-    public void seteSegundo(Equipo eSegundo) {
-        this.eSegundo = eSegundo;
-    }
-
     public ArrayList<ApuestaPartido> getaPartidos() {
         return aPartidos;
-    }
-
-    public void setaPartidos(ArrayList<ApuestaPartido> aPartidos) {
-        this.aPartidos = aPartidos;
-    }
+    }  
 
     public void CalcularGrupo() {
         CalcularPuntos();
@@ -98,7 +66,7 @@ public class ApuestaGrupo implements Serializable {
         HashMap<String, Integer> mGFav = new HashMap<>();
         HashMap<String, Integer> mGDif = new HashMap<>();
         ArrayList<Equipo> equipos = new ArrayList<>();
-        Equipo eq = null;
+        Equipo eq;
         ePrimero = null;
         eSegundo = null;
         for (int i = 0; i < 4; i++) {
@@ -153,7 +121,7 @@ public class ApuestaGrupo implements Serializable {
                     }
                 }
             }
-        }        
+        }
     }
 
     public void CalcularPuntos() {

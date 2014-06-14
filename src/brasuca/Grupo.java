@@ -13,11 +13,11 @@ import java.util.ArrayList;
  */
 public class Grupo implements Serializable {
 
-    static private ArrayList<Grupo> aGrupos = new ArrayList<>();
-    private ArrayList<Partido> aPartidos = new ArrayList<>();
+    private static final ArrayList<Grupo> aGrupos = new ArrayList<>();
+    private final ArrayList<Partido> aPartidos = new ArrayList<>();
     private String sNombre;
     private Equipo[] eEquipos;
-    private Integer[] iPuntos, iGolesFavor, iGolesContra;
+    private final Integer[] iPuntos, iGolesFavor, iGolesContra;
     private Equipo ePrimero, eSegundo;
 
     public String getsNombre() {
@@ -36,20 +36,12 @@ public class Grupo implements Serializable {
         return eEquipos[i];
     }
 
-    public void seteEquipo(Equipo eq, int i) {
-        this.eEquipos[i] = eq;
-    }
-
     public void seteEquipos(Equipo[] eEquipo) {
         this.eEquipos = eEquipo;
     }
 
     public Integer[] getiPuntos() {
         return iPuntos;
-    }
-
-    public void setiPuntos(Integer[] iPuntos) {
-        this.iPuntos = iPuntos;
     }
 
     public Integer getiPuntos(int i) {
@@ -64,10 +56,6 @@ public class Grupo implements Serializable {
         return iGolesFavor;
     }
 
-    public void setiGolesFavor(Integer[] iGolesFavor) {
-        this.iGolesFavor = iGolesFavor;
-    }
-
     public Integer getiGolesFavor(int i) {
         return this.iGolesFavor[i];
     }
@@ -78,10 +66,6 @@ public class Grupo implements Serializable {
 
     public Integer[] getiGolesContra() {
         return iGolesContra;
-    }
-
-    public void setiGolesContra(Integer[] iGolesContra) {
-        this.iGolesContra = iGolesContra;
     }
 
     public Integer getiGolesContra(int i) {
@@ -112,16 +96,8 @@ public class Grupo implements Serializable {
         return aGrupos;
     }
 
-    public static void setaGrupos(ArrayList<Grupo> aGrupos) {
-        Grupo.aGrupos = aGrupos;
-    }
-
     public ArrayList<Partido> getaPartidos() {
         return aPartidos;
-    }
-
-    public void setaPartidos(ArrayList<Partido> aPartidos) {
-        this.aPartidos = aPartidos;
     }
 
     public void setPartido(Partido p) {
@@ -131,46 +107,46 @@ public class Grupo implements Serializable {
     public static Grupo BuscarGrupo(String s) {
         String n = "";
         switch (s) {
-            case "GA": 
+            case "GA":
             case "A": {
                 n = "A";
                 break;
             }
-            case "GB": 
+            case "GB":
             case "B": {
                 n = "B";
                 break;
             }
-            case "GC": 
+            case "GC":
             case "C": {
                 n = "C";
                 break;
             }
-            case "GD": 
+            case "GD":
             case "D": {
                 n = "D";
                 break;
             }
-            case "GE": 
+            case "GE":
             case "E": {
                 n = "E";
                 break;
             }
-            case "GF": 
+            case "GF":
             case "F": {
                 n = "F";
                 break;
             }
-            case "GG": 
+            case "GG":
             case "G": {
                 n = "G";
                 break;
             }
-            case "GH": 
+            case "GH":
             case "H": {
                 n = "H";
                 break;
-            }            
+            }
         }
         for (Grupo grupo : aGrupos) {
             if (n.equals(grupo.getsNombre())) {
@@ -189,6 +165,5 @@ public class Grupo implements Serializable {
         this.iGolesContra = new Integer[]{0, 0, 0, 0};
         aGrupos.add(this);
     }
-    
-    
+
 }
