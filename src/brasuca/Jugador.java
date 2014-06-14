@@ -33,11 +33,28 @@ public class Jugador implements Serializable {
         return Delanteros;
     }
 
+    public void setsNombre(String sNombre) {
+        this.sNombre = sNombre;
+    }
+
+    public void setDefensores(List<String> Defensores) {
+        this.Defensores = Defensores;
+    }
+
+    public void setMediocampistas(List<String> Mediocampistas) {
+        this.Mediocampistas = Mediocampistas;
+    }
+
+    public void setDelanteros(List<String> Delanteros) {
+        this.Delanteros = Delanteros;
+    }
+    
+    
+
     public Jugador(List<String> def, List<String> mid, List<String> fwd, String name) {
         this.sNombre = name;
         this.Defensores = def;
         this.Mediocampistas = mid;
         this.Delanteros = fwd;
-
     }
 }

@@ -104,6 +104,26 @@ public class Grupo implements Serializable {
         this.aPartidos.add(p);
     }
 
+    public static void setaGrupos(ArrayList<Grupo> aGrupos) {
+        Grupo.aGrupos = aGrupos;
+    }
+
+    public void setaPartidos(ArrayList<Partido> aPartidos) {
+        this.aPartidos = aPartidos;
+    }
+
+    public void setiPuntos(Integer[] iPuntos) {
+        this.iPuntos = iPuntos;
+    }
+
+    public void setiGolesFavor(Integer[] iGolesFavor) {
+        this.iGolesFavor = iGolesFavor;
+    }
+
+    public void setiGolesContra(Integer[] iGolesContra) {
+        this.iGolesContra = iGolesContra;
+    }
+
     public static Grupo BuscarGrupo(String s) {
         String n = "";
         switch (s) {

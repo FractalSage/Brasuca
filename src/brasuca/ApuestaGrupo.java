@@ -32,32 +32,64 @@ public class ApuestaGrupo implements Serializable {
         return sNombre;
     }
 
+    public void setsNombre(String sNombre) {
+        this.sNombre = sNombre;
+    }
+
     public Equipo[] geteEquipos() {
         return eEquipos;
+    }
+
+    public void seteEquipos(Equipo[] eEquipos) {
+        this.eEquipos = eEquipos;
     }
 
     public Integer[] getiPuntos() {
         return iPuntos;
     }
 
+    public void setiPuntos(Integer[] iPuntos) {
+        this.iPuntos = iPuntos;
+    }
+
     public Integer[] getiGolesFavor() {
         return iGolesFavor;
+    }
+
+    public void setiGolesFavor(Integer[] iGolesFavor) {
+        this.iGolesFavor = iGolesFavor;
     }
 
     public Integer[] getiGolesContra() {
         return iGolesContra;
     }
 
+    public void setiGolesContra(Integer[] iGolesContra) {
+        this.iGolesContra = iGolesContra;
+    }
+
     public Equipo getePrimero() {
         return ePrimero;
+    }
+
+    public void setePrimero(Equipo ePrimero) {
+        this.ePrimero = ePrimero;
     }
 
     public Equipo geteSegundo() {
         return eSegundo;
     }
 
+    public void seteSegundo(Equipo eSegundo) {
+        this.eSegundo = eSegundo;
+    }
+
     public ArrayList<ApuestaPartido> getaPartidos() {
         return aPartidos;
+    }
+
+    public void setaPartidos(ArrayList<ApuestaPartido> aPartidos) {
+        this.aPartidos = aPartidos;
     }
 
     public void CalcularGrupo() {

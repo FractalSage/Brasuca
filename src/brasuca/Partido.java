@@ -75,6 +75,42 @@ public class Partido implements Serializable, Comparable<Partido> {
         return null;
     }
 
+    public void setcFecha(Calendar cFecha) {
+        this.cFecha = cFecha;
+    }
+
+    public void setsEtapa(String sEtapa) {
+        this.sEtapa = sEtapa;
+    }
+
+    public void seteLocal(Equipo eLocal) {
+        this.eLocal = eLocal;
+    }
+
+    public void seteVisitante(Equipo eVisitante) {
+        this.eVisitante = eVisitante;
+    }
+
+    public void setsId(Integer sId) {
+        this.sId = sId;
+    }
+
+    public void setiGolesLocal(Integer iGolesLocal) {
+        this.iGolesLocal = iGolesLocal;
+    }
+
+    public void setiGolesVisitante(Integer iGolesVisitante) {
+        this.iGolesVisitante = iGolesVisitante;
+    }
+
+    public void setbJugado(Boolean bJugado) {
+        this.bJugado = bJugado;
+    }
+
+    public static void setaPartidos(ArrayList<Partido> aPartidos) {
+        Partido.aPartidos = aPartidos;
+    }
+
     public Partido(GregorianCalendar date, String etapa, Equipo local, Equipo visitante, Integer id, int gollocal, int golvisitante, boolean b) {
         this.sId = id;
         if (sId == 11) {

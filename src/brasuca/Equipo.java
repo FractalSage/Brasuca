@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Equipo implements Serializable {
 
-     private String sNombre;
+    private String sNombre;
     static private ArrayList<Equipo> aEquipo = new ArrayList<>();
 
     public String getsNombre() {
@@ -22,6 +22,14 @@ public class Equipo implements Serializable {
 
     public static ArrayList<Equipo> getaEquipo() {
         return aEquipo;
+    }
+
+    public void setsNombre(String sNombre) {
+        this.sNombre = sNombre;
+    }
+
+    public static void setaEquipo(ArrayList<Equipo> aEquipo) {
+        Equipo.aEquipo = aEquipo;
     }
 
     public static Equipo BuscarEquipo(String nombre) {
