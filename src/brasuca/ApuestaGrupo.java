@@ -22,11 +22,11 @@ import java.util.Objects;
  */
 public class ApuestaGrupo implements Serializable {
 
-    private final String sNombre;
+    private String sNombre;
     private Equipo[] eEquipos;
     private Integer[] iPuntos, iGolesFavor, iGolesContra;
     private Equipo ePrimero, eSegundo;
-    private final ArrayList<ApuestaPartido> aPartidos = new ArrayList<>();
+    private ArrayList<ApuestaPartido> aPartidos = new ArrayList<>();
 
     public String getsNombre() {
         return sNombre;
@@ -58,7 +58,7 @@ public class ApuestaGrupo implements Serializable {
 
     public ArrayList<ApuestaPartido> getaPartidos() {
         return aPartidos;
-    }  
+    }
 
     public void CalcularGrupo() {
         CalcularPuntos();

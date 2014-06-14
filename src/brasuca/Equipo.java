@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Equipo implements Serializable {
 
-    private final String sNombre;
-    private static final ArrayList<Equipo> aEquipo = new ArrayList<>();
+     private String sNombre;
+    static private ArrayList<Equipo> aEquipo = new ArrayList<>();
 
     public String getsNombre() {
         return sNombre;

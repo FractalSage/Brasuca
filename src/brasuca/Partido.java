@@ -15,12 +15,12 @@ import java.util.GregorianCalendar;
  */
 public class Partido implements Serializable, Comparable<Partido> {
 
-    private final Calendar cFecha;
-    private final String sEtapa;
-    private final Equipo eLocal, eVisitante;
-    private final Integer sId, iGolesLocal, iGolesVisitante;
-    private final Boolean bJugado;
-    private static final ArrayList<Partido> aPartidos = new ArrayList<>();
+    private Calendar cFecha;
+    private String sEtapa;
+    private Equipo eLocal, eVisitante;
+    private Integer sId, iGolesLocal, iGolesVisitante;
+    private Boolean bJugado;
+    static private ArrayList<Partido> aPartidos = new ArrayList<>();
 
     public Integer getsId() {
         return sId;

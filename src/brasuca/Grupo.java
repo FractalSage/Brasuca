@@ -13,11 +13,11 @@ import java.util.ArrayList;
  */
 public class Grupo implements Serializable {
 
-    private static final ArrayList<Grupo> aGrupos = new ArrayList<>();
-    private final ArrayList<Partido> aPartidos = new ArrayList<>();
+    static private ArrayList<Grupo> aGrupos = new ArrayList<>();
+    private ArrayList<Partido> aPartidos = new ArrayList<>();
     private String sNombre;
     private Equipo[] eEquipos;
-    private final Integer[] iPuntos, iGolesFavor, iGolesContra;
+    private Integer[] iPuntos, iGolesFavor, iGolesContra;
     private Equipo ePrimero, eSegundo;
 
     public String getsNombre() {

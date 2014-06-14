@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class Jugador implements Serializable {
 
-    private final String sNombre;
-    private final List<String> Defensores, Mediocampistas, Delanteros;
+    private String sNombre;
+    private List<String> Defensores, Mediocampistas, Delanteros;
 
     public String getsNombre() {
         return sNombre;
