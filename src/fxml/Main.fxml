@@ -2049,9 +2049,9 @@
                                                 <Font name="Brazil 2014" size="26.0" />
                                             </font>
                                         </Label>
-                              <HBox prefHeight="22.0" prefWidth="900.0">
+                              <HBox prefHeight="22.0" prefWidth="0.0">
                                  <VBox.margin>
-                                    <Insets left="218.0" right="67.0" top="5.0" />
+                                    <Insets left="237.0" right="67.0" top="5.0" />
                                  </VBox.margin>
                                  <children>
                                     <Label text="33" textFill="#1c4f79">
@@ -2184,8 +2184,9 @@
                                     </Label>
                                  </children>
                               </HBox>
-                                          <TableView fx:id="tablaResultados" maxHeight="-Infinity" prefHeight="515.0" prefWidth="1016.0">
+                                          <TableView fx:id="tablaResultados" maxHeight="-Infinity" prefHeight="515.0" prefWidth="1039.0">
                                               <columns>
+                                    <TableColumn fx:id="columnaPosicion" prefWidth="38.0" />
                                                   <TableColumn fx:id="columnaUsuario" editable="false" prefWidth="151.0" resizable="false" text="Usuario" />
                                                   <TableColumn fx:id="columnaGrupoA" editable="false" prefWidth="55.0" resizable="false" sortable="false" text="Grupo A" />
                                                   <TableColumn fx:id="columnaGrupoB" editable="false" prefWidth="55.0" resizable="false" sortable="false" text="Grupo B" />
@@ -2205,7 +2206,7 @@
                                                   <TableColumn fx:id="columnaTotal" editable="false" prefWidth="45.0" resizable="false" sortable="false" text="Total" />
                                               </columns>
                                  <VBox.margin>
-                                    <Insets left="67.0" right="67.0" top="2.0" />
+                                    <Insets left="48.0" right="48.0" top="2.0" />
                                  </VBox.margin>
                                           </TableView>
                               <Button fx:id="botonActualizar" mnemonicParsing="false" text="Actualizar">

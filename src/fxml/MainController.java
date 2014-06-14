@@ -160,7 +160,7 @@ public class MainController implements Initializable {
             columnaEquipoF, columnaPuntosF, columnaGolesFavorF, columnaGolesContraF,
             columnaEquipoG, columnaPuntosG, columnaGolesFavorG, columnaGolesContraG,
             columnaEquipoH, columnaPuntosH, columnaGolesFavorH, columnaGolesContraH;
-    public TableColumn<ApostadorModel, String> columnaUsuario,
+    public TableColumn<ApostadorModel, String> columnaPosicion, columnaUsuario,
             columnaGrupoA, columnaGrupoB, columnaGrupoC, columnaGrupoD,
             columnaGrupoE, columnaGrupoF, columnaGrupoG, columnaGrupoH,
             columnaOctavos, columnaCuartos, columnaSemis, columnaFinal, columnaTercer,
@@ -819,14 +819,14 @@ public class MainController implements Initializable {
                 VaciarImagenes();
             }
         });
-        
+
         botonResumen.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
-                try{
+                try {
                     IOManager io = new IOManager();
                     io.ImprimirApostador(apostador);
-                }catch(Exception e){                    
+                } catch (Exception e) {
                 }
             }
         });
@@ -1271,42 +1271,42 @@ public class MainController implements Initializable {
         if (p.get(0).isbJugado()) {
             textGolLocal1.setText(p.get(0).getiGolesLocal().toString());
             textGolVisitante1.setText(p.get(0).getiGolesVisitante().toString());
-        }else{
+        } else {
             textGolLocal1.clear();
             textGolVisitante1.clear();
         }
         if (p.get(1).isbJugado()) {
             textGolLocal2.setText(p.get(1).getiGolesLocal().toString());
             textGolVisitante2.setText(p.get(1).getiGolesVisitante().toString());
-        }else{
+        } else {
             textGolLocal2.clear();
             textGolVisitante2.clear();
         }
         if (p.get(2).isbJugado()) {
             textGolLocal3.setText(p.get(2).getiGolesLocal().toString());
             textGolVisitante3.setText(p.get(2).getiGolesVisitante().toString());
-        }else{
+        } else {
             textGolLocal3.clear();
             textGolVisitante3.clear();
         }
         if (p.get(3).isbJugado()) {
             textGolLocal4.setText(p.get(3).getiGolesLocal().toString());
             textGolVisitante4.setText(p.get(3).getiGolesVisitante().toString());
-        }else{
+        } else {
             textGolLocal4.clear();
             textGolVisitante4.clear();
         }
         if (p.get(4).isbJugado()) {
             textGolLocal5.setText(p.get(4).getiGolesLocal().toString());
             textGolVisitante5.setText(p.get(4).getiGolesVisitante().toString());
-        }else{
+        } else {
             textGolLocal5.clear();
             textGolVisitante5.clear();
         }
         if (p.get(5).isbJugado()) {
             textGolLocal6.setText(p.get(5).getiGolesLocal().toString());
             textGolVisitante6.setText(p.get(5).getiGolesVisitante().toString());
-        }else{
+        } else {
             textGolLocal6.clear();
             textGolVisitante6.clear();
         }
@@ -2569,11 +2569,17 @@ public class MainController implements Initializable {
         CargarEstadisticas(stats);
         ArrayList<ApostadorModel> betmodel = new ArrayList<>();
         if (bets.size() > 0) {
-            bets.stream().forEach((bet) -> {
+            for (Apostador bet: bets) {
                 betmodel.add(new ApostadorModel(bet));
-            });
+            }
             Collections.sort(betmodel, Collections.reverseOrder());
+            for(int i = 0; i<betmodel.size();i++){
+                Integer c = i+1;
+                betmodel.get(i).setPosicion(c.toString());
+            }
             final ObservableList<ApostadorModel> data = FXCollections.observableArrayList(betmodel);
+            columnaPosicion.setCellValueFactory(new PropertyValueFactory<>("posicion"));
+            columnaPosicion.setCellFactory(getCustomCellFactory("20", "Arial", "grey", true, 0));
             columnaUsuario.setCellValueFactory(new PropertyValueFactory<>("usuario"));
             columnaUsuario.setCellFactory(getCustomCellFactory("20", "Arial", "black", false, 0));
             columnaGrupoA.setCellValueFactory(new PropertyValueFactory<>("grupoA"));

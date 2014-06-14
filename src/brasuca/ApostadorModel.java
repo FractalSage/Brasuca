@@ -16,7 +16,7 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
 
     private String grupoA, grupoB, grupoC, grupoD, grupoE,
             grupoF, grupoG, grupoH, octavos, cuartos, semis,
-            tercer, sfinal, podio, goleador, total, usuario;
+            tercer, sfinal, podio, goleador, total, usuario, posicion;
     private Integer iGrupoA = 0, iGrupoB = 0, iGrupoC = 0, iGrupoD = 0, iGrupoE = 0,
             iGrupoF = 0, iGrupoG = 0, iGrupoH = 0, iOctavos = 0, iCuartos = 0, iSemis = 0,
             iTercer = 0, iFinal = 0, iPodio = 0, iGoleador = 0;
@@ -156,6 +156,14 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public String getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(String posicion) {
+        this.posicion = posicion;
     }
 
     public ApostadorModel(Apostador apostador) {
@@ -430,23 +438,23 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
         }
         iTotal = iGrupoA + iGrupoB + iGrupoC + iGrupoD + iGrupoE + iGrupoF + iGrupoG + iGrupoH
                 + iOctavos + iCuartos + iSemis + iTercer + iFinal + iGoleador + iPodio;
-        usuario = apostador.getsUsuario();
-        grupoA = iGrupoA.toString();
-        grupoB = iGrupoB.toString();
-        grupoC = iGrupoC.toString();
-        grupoD = iGrupoD.toString();
-        grupoE = iGrupoE.toString();
-        grupoF = iGrupoF.toString();
-        grupoG = iGrupoG.toString();
-        grupoH = iGrupoH.toString();
-        octavos = iOctavos.toString();
-        cuartos = iCuartos.toString();
-        semis = iSemis.toString();
-        tercer = iTercer.toString();
-        sfinal = iFinal.toString();
-        podio = iPodio.toString();
-        goleador = iGoleador.toString();
-        total = iTotal.toString();
+        this.usuario = apostador.getsUsuario();
+        this.grupoA = iGrupoA.toString();
+        this.grupoB = iGrupoB.toString();
+        this.grupoC = iGrupoC.toString();
+        this.grupoD = iGrupoD.toString();
+        this.grupoE = iGrupoE.toString();
+        this.grupoF = iGrupoF.toString();
+        this.grupoG = iGrupoG.toString();
+        this.grupoH = iGrupoH.toString();
+        this.octavos = iOctavos.toString();
+        this.cuartos = iCuartos.toString();
+        this.semis = iSemis.toString();
+        this.tercer = iTercer.toString();
+        this.sfinal = iFinal.toString();
+        this.podio = iPodio.toString();
+        this.goleador = iGoleador.toString();
+        this.total = iTotal.toString();        
     }
 
     @Override
