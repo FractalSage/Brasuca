@@ -6,6 +6,7 @@ package brasuca;
 
 import impl.org.controlsfx.i18n.Localization;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -102,4 +103,16 @@ public class Brasuca extends Application {
         Application.launch(Brasuca.class, args);
     }
 
+    private void CambiarGoleador() throws IOException, ClassNotFoundException {
+        IOManager io = new IOManager();
+        io.LeerApuestas();
+        ArrayList<Apostador> bets = io.getApostadores();
+        for (Apostador bet : bets) {
+            if (bet.getsUsuario().equals("Fidus")
+                    || bet.getsUsuario().equals("ciroges")
+                    || bet.getsUsuario().equals("emavillalba")) {
+                bet.setGoleador("Thomas Mueller");
+            }
+        }
+    }
 }
