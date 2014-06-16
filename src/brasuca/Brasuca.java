@@ -101,18 +101,5 @@ public class Brasuca extends Application {
     public static
             void main(String[] args) {
         Application.launch(Brasuca.class, args);
-    }
-
-    private void CambiarGoleador() throws IOException, ClassNotFoundException {
-        IOManager io = new IOManager();
-        io.LeerApuestas();
-        ArrayList<Apostador> bets = io.getApostadores();
-        for (Apostador bet : bets) {
-            if (bet.getsUsuario().equals("Fidus")
-                    || bet.getsUsuario().equals("ciroges")
-                    || bet.getsUsuario().equals("emavillalba")) {
-                bet.setGoleador("Thomas Mueller");
-            }
-        }
-    }
+    }    
 }

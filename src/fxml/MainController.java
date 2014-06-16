@@ -2569,12 +2569,12 @@ public class MainController implements Initializable {
         CargarEstadisticas(stats);
         ArrayList<ApostadorModel> betmodel = new ArrayList<>();
         if (bets.size() > 0) {
-            for (Apostador bet: bets) {
+            for (Apostador bet : bets) {
                 betmodel.add(new ApostadorModel(bet));
             }
             Collections.sort(betmodel, Collections.reverseOrder());
-            for(int i = 0; i<betmodel.size();i++){
-                Integer c = i+1;
+            for (int i = 0; i < betmodel.size(); i++) {
+                Integer c = i + 1;
                 betmodel.get(i).setPosicion(c.toString());
             }
             final ObservableList<ApostadorModel> data = FXCollections.observableArrayList(betmodel);
@@ -2794,6 +2794,18 @@ public class MainController implements Initializable {
             labelGol3.setText("");
             labelGol4.setText("");
             labelGol5.setText("");
+        }
+    }
+
+    private void CambiarGoleador() throws IOException, ClassNotFoundException {
+        IOManager io = new IOManager();
+        io.LeerApuestas();
+        ArrayList<Apostador> bets = io.getApostadores();
+        for (Apostador bet : bets) {
+            if (bet.getsUsuario().equals("Fidus") || bet.getsUsuario().equals("emavillalba")) {
+                bet.setGoleador("Thomas Mueller");
+                io.EscribirApuesta(bet.getsUsuario(), bet);
+            }
         }
     }
 }
