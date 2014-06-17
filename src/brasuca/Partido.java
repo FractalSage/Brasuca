@@ -113,11 +113,7 @@ public class Partido implements Serializable, Comparable<Partido> {
 
     public Partido(GregorianCalendar date, String etapa, Equipo local, Equipo visitante, Integer id, int gollocal, int golvisitante, boolean b) {
         this.sId = id;
-        if (sId == 11) {
-            this.cFecha = calendarFor(2014, date.get(Calendar.MONTH) + 1, date.get(Calendar.DAY_OF_MONTH) - 1);
-        } else {
-            this.cFecha = calendarFor(2014, date.get(Calendar.MONTH) + 1, date.get(Calendar.DAY_OF_MONTH));
-        }
+        this.cFecha = calendarFor(2014, date.get(Calendar.MONTH) + 1, date.get(Calendar.DAY_OF_MONTH));
         this.sEtapa = etapa;
         this.eLocal = local;
         this.eVisitante = visitante;
