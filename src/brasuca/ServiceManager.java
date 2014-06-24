@@ -31,10 +31,20 @@ import java.util.Objects;
 public class ServiceManager {
 
     private static ArrayList<String> sGoleador = new ArrayList<>();
+    private static final ArrayList<String> sGoleadores = new ArrayList<>();
+    private static final ArrayList<String> sGoles = new ArrayList<>();
 
     public static ArrayList<String> getsGoleador() {
         return sGoleador;
-    }    
+    }
+
+    public static ArrayList<String> getsGoles() {
+        return sGoles;
+    }
+
+    public static ArrayList<String> getsGoleadores() {
+        return sGoleadores;
+    }
 
     public static void CargarGrupos(boolean b) throws IOException {
         List<TGroupsCompetitors> Groups = allGroupCompetitors().getTGroupsCompetitors();
@@ -199,18 +209,18 @@ public class ServiceManager {
 
     public static void CargarGoleador() {
         int x = 0;
-        for(TTopGoalScorer goleador : topGoalScorers(0).getTTopGoalScorer()){
-            if(goleador.getIGoals() > x){
+        for (TTopGoalScorer goleador : topGoalScorers(0).getTTopGoalScorer()) {
+            if (goleador.getIGoals() > x) {
                 x = goleador.getIGoals();
                 sGoleador = new ArrayList<>();
                 sGoleador.add(goleador.getSName());
-            }else{
-                if(goleador.getIGoals() == x){
+            } else {
+                if (goleador.getIGoals() == x) {
                     sGoleador.add(goleador.getSName());
-                }else{
-                    break;
                 }
             }
+            sGoleadores.add(goleador.getSName());
+            sGoles.add(String.valueOf(goleador.getIGoals()));
         }
     }
 

@@ -16,6 +16,7 @@ import brasuca.IOManager;
 import brasuca.Jugador;
 import brasuca.Partido;
 import brasuca.PathFinder;
+import brasuca.ServiceManager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -77,7 +78,7 @@ public class MainController implements Initializable {
             WSemi1 = null, WSemi2 = null, LSemi1 = null, LSemi2 = null;
     private Stage stage;
     @FXML
-    public Button botonIngresar, botonGuardarGrupo, botonGuardarLlaves, botonResumen,
+    public Button botonIngresar, botonGuardarGrupo, botonGuardarLlaves, botonResumen, botonSalir,
             botonGuardarGoleador, botonOctavos, botonCuartos, botonSemifinales,
             botonFinal, botonReiniciar, botonEditar, botonNuevaApuesta, botonActualizar;
     public ChoiceBox ListaPais, ListaJugador;
@@ -100,6 +101,8 @@ public class MainController implements Initializable {
             label1ro1, label1ro2, label1ro3, label1ro4, label1ro5,
             label2do1, label2do2, label2do3, label2do4, label2do5,
             label3ro1, label3ro2, label3ro3, label3ro4, label3ro5,
+            labelGName1, labelGName2, labelGName3, labelGName4, labelGName5,
+            labelGNumber1, labelGNumber2, labelGNumber3, labelGNumber4, labelGNumber5,
             labelGrupo;
     public PasswordField pwdfldContraseña;
     public TextField textUsuario,
@@ -169,6 +172,7 @@ public class MainController implements Initializable {
     @Override
     @SuppressWarnings("Convert2Lambda")
     public void initialize(URL url, ResourceBundle rb) {
+        botonSalir.setDisable(true);
         Grupo.getaGrupos().stream().forEach((grupo) -> {
             Collections.sort(grupo.getaPartidos());
         });
@@ -272,6 +276,7 @@ public class MainController implements Initializable {
                                     b = false;
                                     apostador = new Apostador(sUser, sPass);
                                     Habilitar();
+                                    botonSalir.setDisable(false);
                                     CargarGrupoApuesta(indice);
                                 }
                             } else {
@@ -291,6 +296,7 @@ public class MainController implements Initializable {
                         b = false;
                         apostador = new Apostador(sUser, sPass);
                         Habilitar();
+                        botonSalir.setDisable(false);
                         CargarGrupoApuesta(indice);
                     }
                 } else {
@@ -817,6 +823,7 @@ public class MainController implements Initializable {
                 botonIngresar.setDisable(false);
                 botonEditar.setDisable(false);
                 VaciarImagenes();
+                botonSalir.setDisable(true);
             }
         });
 
@@ -825,9 +832,22 @@ public class MainController implements Initializable {
             public void handle(MouseEvent t) {
                 try {
                     IOManager io = new IOManager();
-                    io.ImprimirApostador(apostador);
-                } catch (Exception e) {
+                    io.ImprimirApostador(io.LeerApostador(apostador.getsUsuario()));
+                } catch (IOException | ClassNotFoundException e) {
                 }
+            }
+        });
+
+        botonSalir.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent t) {
+                Desabilitar();
+                textUsuario.setDisable(false);
+                pwdfldContraseña.setDisable(false);
+                botonIngresar.setDisable(false);
+                botonEditar.setDisable(false);
+                VaciarImagenes();
+                botonSalir.setDisable(true);
             }
         });
 
@@ -846,6 +866,7 @@ public class MainController implements Initializable {
                             if (apostador.ValidarContraseña(sPass)) {
                                 b = true;
                                 Habilitar();
+                                botonSalir.setDisable(false);
                                 botonResumen.setDisable(false);
                                 indice = 0;
                                 CargarGrupoApuesta(indice);
@@ -1507,6 +1528,7 @@ public class MainController implements Initializable {
     }
 
     private void ArmarPlayoffs() {
+        ArmarGoleadores();
         ArrayList<Grupo> aGrupo = Grupo.getaGrupos();
         try {
             A1 = aGrupo.get(0).getePrimero();
@@ -2797,6 +2819,7 @@ public class MainController implements Initializable {
         }
     }
 
+    //Usado para cambiar el goleador de Ema y Fido. No se tiene que usar más.
     private void CambiarGoleador() throws IOException, ClassNotFoundException {
         IOManager io = new IOManager();
         io.LeerApuestas();
@@ -2806,6 +2829,44 @@ public class MainController implements Initializable {
                 bet.setGoleador("Thomas Mueller");
                 io.EscribirApuesta(bet.getsUsuario(), bet);
             }
+        }
+    }
+
+    private void ArmarGoleadores() {
+        labelGName1.setText("");
+        labelGNumber1.setText("");
+        labelGName2.setText("");
+        labelGNumber2.setText("");
+        labelGName3.setText("");
+        labelGNumber3.setText("");
+        labelGName4.setText("");
+        labelGNumber4.setText("");
+        labelGName5.setText("");
+        labelGNumber5.setText("");
+        try {
+            labelGName1.setText(ServiceManager.getsGoleadores().get(0));
+            labelGNumber1.setText(ServiceManager.getsGoles().get(0));
+            try {
+                labelGName2.setText(ServiceManager.getsGoleadores().get(1));
+                labelGNumber2.setText(ServiceManager.getsGoles().get(1));
+                try {
+                    labelGName3.setText(ServiceManager.getsGoleadores().get(2));
+                    labelGNumber3.setText(ServiceManager.getsGoles().get(2));
+                    try {
+                        labelGName4.setText(ServiceManager.getsGoleadores().get(3));
+                        labelGNumber4.setText(ServiceManager.getsGoles().get(3));
+                        try {
+                            labelGName5.setText(ServiceManager.getsGoleadores().get(4));
+                            labelGNumber5.setText(ServiceManager.getsGoles().get(4));
+                        } catch (Exception e) {
+                        }
+                    } catch (Exception e) {
+                    }
+                } catch (Exception e) {
+                }
+            } catch (Exception e) {
+            }
+        } catch (Exception e) {
         }
     }
 }
