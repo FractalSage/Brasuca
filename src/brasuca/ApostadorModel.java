@@ -176,8 +176,8 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
         Partido partido;
         ApuestaPartido betpartido;
         int i = 0;
-        for (Grupo grupo : grupos) {
-            betgrupo = betgrupos.get(i);
+        for (Grupo grupo : grupos) {            
+            betgrupo = betgrupos.get(i);            
             partidos = grupo.getaPartidos();
             betpartidos = betgrupos.get(i).getaPartidos();
             for (int j = 0; j < partidos.size(); j++) {
@@ -264,42 +264,46 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
                     }
                 }
             }
-            if ((grupo.getePrimero() == betgrupo.getePrimero())
-                    && (grupo.geteSegundo() == betgrupo.geteSegundo())) {
-                switch (i) {
-                    case 0: {
-                        iGrupoA += 3;
-                        break;
-                    }
-                    case 1: {
-                        iGrupoB += 3;
-                        break;
-                    }
-                    case 2: {
-                        iGrupoC += 3;
-                        break;
-                    }
-                    case 3: {
-                        iGrupoD += 3;
-                        break;
-                    }
-                    case 4: {
-                        iGrupoE += 3;
-                        break;
-                    }
-                    case 5: {
-                        iGrupoF += 3;
-                        break;
-                    }
-                    case 6: {
-                        iGrupoG += 3;
-                        break;
-                    }
-                    case 7: {
-                        iGrupoH += 3;
-                        break;
+            try {
+                if ((grupo.getePrimero().getsNombre().equals(betgrupo.getePrimero().getsNombre()))
+                        && (grupo.geteSegundo().getsNombre().equals(betgrupo.geteSegundo().getsNombre()))) {
+                    switch (i) {
+                        case 0: {
+                            iGrupoA += 3;
+                            break;
+                        }
+                        case 1: {
+                            iGrupoB += 3;
+                            break;
+                        }
+                        case 2: {
+                            iGrupoC += 3;
+                            break;
+                        }
+                        case 3: {
+                            iGrupoD += 3;
+                            break;
+                        }
+                        case 4: {
+                            iGrupoE += 3;
+                            break;
+                        }
+                        case 5: {
+                            iGrupoF += 3;
+                            break;
+                        }
+                        case 6: {
+                            iGrupoG += 3;
+                            break;
+                        }
+                        case 7: {
+                            iGrupoH += 3;
+                            break;
+                        }
                     }
                 }
+            } catch (NullPointerException e) {
+
             }
             i++;
         }
@@ -454,7 +458,7 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
         this.sfinal = iFinal.toString();
         this.podio = iPodio.toString();
         this.goleador = iGoleador.toString();
-        this.total = iTotal.toString();        
+        this.total = iTotal.toString();
     }
 
     @Override
