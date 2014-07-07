@@ -1079,7 +1079,7 @@
                                        <children>
                                                         <HBox prefHeight="30.0" prefWidth="185.0">
                                                             <children>
-                                                                <Label fx:id="labelCtoVisitante4" font="$x5" prefHeight="30.0" prefWidth="150.0" text="O8" textFill="#284461">
+                                                                <Label fx:id="labelCtoLocal4" font="$x5" prefHeight="30.0" prefWidth="150.0" text="O8" textFill="#284461">
                                                                     <HBox.margin>
                                                                         <Insets />
                                                                     </HBox.margin>
@@ -1092,7 +1092,7 @@
                                                         </HBox>
                                                         <HBox prefHeight="30.0" prefWidth="185.0">
                                                             <children>
-                                                                <Label fx:id="labelCtoLocal4" font="$x5" prefHeight="30.0" prefWidth="150.0" text="O7" textFill="#284461" HBox.margin="$x14" />
+                                                                <Label fx:id="labelCtoVisitante4" font="$x5" prefHeight="30.0" prefWidth="150.0" text="O7" textFill="#284461" HBox.margin="$x14" />
                                                                 <TextArea fx:id="textGolCtoLocal4" editable="false" prefHeight="25.0" prefWidth="25.0" wrapText="true">
                                                    <HBox.margin>
                                                       <Insets bottom="3.0" left="5.0" top="2.0" />

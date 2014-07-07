@@ -84,11 +84,26 @@ public class ServiceManager {
             int id = partido.getIId();
             Equipo l = Equipo.BuscarEquipo(Equipo.CorregirNombre(partido.getTeam1().getSName()));
             Equipo v = Equipo.BuscarEquipo(Equipo.CorregirNombre(partido.getTeam2().getSName()));
-            boolean b = !"U".equals(partido.getSResult());
+            boolean b = !"U".equals(partido.getSResult());            
+            String gollocal;
+            String golvisitante;
             String string = partido.getSScore();
-            String[] parts = string.split("-");
-            String gollocal = parts[0];
-            String golvisitante = parts[1];
+            if (string.length() > 3) {
+                String[] parts = string.split(" ");
+                String[] gols = parts[0].split("-");
+                int gol, gov;
+                gol = Integer.valueOf(gols[0]);
+                gov = Integer.valueOf(gols[1]);
+                gols = parts[1].split("-");                
+                gol += Integer.valueOf(String.valueOf(gols[0].charAt(1)));
+                gov += Integer.valueOf(String.valueOf(gols[1].charAt(0)));
+                gollocal = String.valueOf(gol);
+                golvisitante = String.valueOf(gov);
+            } else {
+                String[] parts = string.split("-");
+                gollocal = parts[0];
+                golvisitante = parts[1];
+            }
             int gl = Integer.valueOf(gollocal);
             int gv = Integer.valueOf(golvisitante);
             Partido p = new Partido(gc, s, l, v, id, gl, gv, b);
