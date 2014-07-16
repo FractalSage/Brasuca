@@ -912,7 +912,7 @@
                                                                         <Insets />
                                                                     </HBox.margin>
                                                                 </Label>
-                                                                <TextArea id="textGolFinalVisitante" fx:id="textGolFinal1Visitante" editable="false" prefHeight="25.0" prefWidth="25.0" wrapText="true">
+                                                                <TextArea id="textGolFinalVisitante" fx:id="textGolFinalVisitante1" editable="false" prefHeight="25.0" prefWidth="25.0" wrapText="true">
                                                    <HBox.margin>
                                                       <Insets bottom="2.0" left="5.0" top="3.0" />
                                                    </HBox.margin>

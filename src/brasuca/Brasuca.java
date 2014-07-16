@@ -6,7 +6,6 @@ package brasuca;
 
 import impl.org.controlsfx.i18n.Localization;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -373,7 +373,6 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
                                 case 64: {
                                     pri = llave.geteLocal();
                                     seg = llave.geteVisitante();
-                                    iFinal += 2;
                                     break;
                                 }
                             }
@@ -386,7 +385,6 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
                                 case 64: {
                                     pri = llave.geteVisitante();
                                     seg = llave.geteLocal();
-                                    iFinal += 2;
                                     break;
                                 }
                             }
@@ -410,11 +408,11 @@ public class ApostadorModel implements Comparable<ApostadorModel> {
                                 && (Objects.equals(llave.getiGolesVisitante(), betllave.getiGolVisitante()))) {
                             switch (llave.getsId()) {
                                 case 63: {
-                                    iTercer += 2;
+                                    iTercer += 3;
                                     break;
                                 }
                                 case 64: {
-                                    iFinal += 2;
+                                    iFinal += 3;
                                     break;
                                 }
                             }
